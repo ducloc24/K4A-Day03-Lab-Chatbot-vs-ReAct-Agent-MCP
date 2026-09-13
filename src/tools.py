@@ -43,9 +43,20 @@ TOOLS_SCHEMA = [
         "parameters": {
             "type": "object",
             "properties": {
-                # TODO 1.2: Khai báo các thuộc tính tham số cho Tool tại đây...
+                "student_id": {
+                    "type": "string",
+                    "description": "Mã sinh viên cần đặt lịch (ví dụ: 'SV2026001')"
+                },
+                "datetime_str": {
+                    "type": "string",
+                    "description": "Thời gian hẹn (ví dụ: '14:00 15/09/2026')"
+                },
+                "advisor_name": {
+                    "type": "string",
+                    "description": "Tên cố vấn học tập cần đặt lịch"
+                }
             },
-            "required": [] # TODO 1.2: Khai báo danh sách các trường bắt buộc tại đây...
+            "required": ["student_id", "datetime_str", "advisor_name"]
         }
     }
 ]
@@ -70,7 +81,15 @@ MOCK_DATABASE = {
         "email": "binh.tt@vinuni.edu.vn",
         "status": "Đang học",
         "advisor": "TS. Lê Thị B"
-    }
+    },
+    "SV2026003": {
+            "full_name": "Trần Đức Lộc",
+            "class": "AI-K4",
+            "gpa": 4.0,
+            "email": "loc.td@vinuni.edu.vn",
+            "status": "Đang học",
+            "advisor": "TS. Lê Thị B"
+        }
 }
 
 
