@@ -2,7 +2,7 @@
 
 > **Họ và Tên Học viên:** Trần Đức Lộc 
 > **Mã Sinh Viên / Mã Học viên:** 2A202602431  
-> **Chủ đề Lựa chọn:** Lĩnh vực Giáo dục & Đào tạo (Education & Academics)
+> **Chủ đề Lựa chọn:** Tra cứu thông tin và đặt lịch tự vấn của sinh viên - Lĩnh vực Giáo dục & Đào tạo (Education & Academics)
 
 ---
 
@@ -28,8 +28,8 @@ Dán 1 đoạn trích xuất log tiêu biểu từ file `docs/trace_waterfall.js
 ```json
 [
   {
-    "step": 2,
-    "query": "Hãy tra cứu cố vấn học tập của sinh viên SV2026001 rồi đặt lịch tư vấn với cố vấn đó lúc 14:00 ngày 15/09/2026.",
+    "step": 1,
+    "query": "Hãy đặt lịch tư vấn học vụ cho sinh viên SV2026001 với cố vấn PGS.TS Nguyễn Văn A lúc 14:00 ngày 15/09/2026.",
     "action_type": "TOOL_EXECUTION",
     "tool_name": "schedule_appointment",
     "arguments": {
@@ -45,7 +45,15 @@ Dán 1 đoạn trích xuất log tiêu biểu từ file `docs/trace_waterfall.js
       "advisor": "PGS.TS Nguyễn Văn A",
       "message": "Đặt lịch thành công cho sinh viên SV2026001 với PGS.TS Nguyễn Văn A vào lúc 14:00 15/09/2026."
     },
-    "latency_ms": 1579.71
+    "latency_ms": 1754.7
+  },
+  {
+    "step": 2,
+    "query": "Hãy đặt lịch tư vấn học vụ cho sinh viên SV2026001 với cố vấn PGS.TS Nguyễn Văn A lúc 14:00 ngày 15/09/2026.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "OpenAI phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Dựa trên kết quả từ hệ thống, lịch hẹn tư vấn học vụ của bạn đã được đặt thành công. Dưới đây là thông tin chi tiết về lịch hẹn:\n\n* **Mã sinh viên:** SV2026001\n* **Cố vấn học tập:** PGS.TS Nguyễn Văn A\n* **Thời gian:** 14:00 ngày 15/09/2026\n* **Mã đặt lịch (Booking ID):** BK-SV2026001-99\n* **Trạng thái:** Thành công\n\nBạn vui lòng có mặt đúng giờ tại buổi tư vấn nhé! Nếu cần thay đổi hoặc hỗ trợ thêm thông tin nào khác, bạn cứ cho mình biết nha.",
+    "latency_ms": 1557.71
   }
 ]
 ```
@@ -53,41 +61,10 @@ Dán 1 đoạn trích xuất log tiêu biểu từ file `docs/trace_waterfall.js
 ---
 
 ## 3. TỔNG KẾT KẾT QUẢ NGHIỆM THU & NỘP BÀI
-[
-  {
-    "step": 1,
-    "query": "Mã sinh viên SV2026002",
-    "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
-    "arguments": {
-      "student_id": "SV2026002"
-    },
-    "observation": {
-      "status": "SUCCESS",
-      "student_id": "SV2026002",
-      "data": {
-        "full_name": "Trần Thị Bình",
-        "class": "AI-K4",
-        "gpa": 3.6,
-        "email": "binh.tt@vinuni.edu.vn",
-        "status": "Đang học",
-        "advisor": "TS. Lê Thị B"
-      }
-    },
-    "latency_ms": 1282.26
-  },
-  {
-    "step": 2,
-    "query": "Mã sinh viên SV2026002",
-    "action_type": "FINAL_ANSWER",
-    "thought": "OpenAI phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
-    "output": "Dựa trên dữ liệu hồ sơ học vụ thu được từ hệ thống của Đại học VinUni, đây là thông tin chi tiết của sinh viên mang mã **SV2026002**:\n\n- **Họ và tên:** Trần Thị Bình\n- **Lớp:** AI-K4\n- **GPA:** 3.6\n- **Email:** binh.tt@vinuni.edu.vn\n- **Trạng thái học tập:** Đang học\n- **Cố vấn học tập:** TS. Lê Thị B\n\nBạn có cần hỗ trợ thêm thông tin gì khác hoặc muốn đặt lịch hẹn tư vấn học vụ với cố vấn học tập không?",
-    "latency_ms": 1722.96
-  }
-]
+
 - [x] Đã điền API Key thật trong `.env` và xác nhận Agent chạy mượt mà trên LLM API thật (Gemini/OpenAI).
 - **Tổng số Test Cases đã chạy thành công:** _5_ / 5 test cases.
-- **Số lượt gọi Tool qua MCP Server chính xác:** _2_ lượt.
+- **Số lượt gọi Tool qua MCP Server chính xác:** _5_ lượt.
 - **Kết quả đẩy Repo nộp bài:** [X] Đã Commit và Push mã nguồn thành công lên GitHub cá nhân.
 
 ---
